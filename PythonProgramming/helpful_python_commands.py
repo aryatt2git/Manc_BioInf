@@ -45,7 +45,7 @@ new_sentence = sentence.replace("need", "would like")
 print(new_sentence)
 
 '''
-values can be inserted into strings to do different thigs
+values can be inserted into strings to do different things
 \t indents the remainder of the string
 \n puts the remainder of the string on a new line
 \n\r put the remainder of the string on a newline and indents it
