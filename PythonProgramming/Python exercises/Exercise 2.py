@@ -174,7 +174,7 @@ def nucleotide_count(sequence, number):
 
     from itertools import product
 
-    nucleotides = ['a', 'c', 'g', 't']
+    nucleotides = ['A', 'C', 'G', 'T']
 
     combinations = [''.join(combination) for combination in product(nucleotides, repeat = number)]
 
@@ -186,7 +186,7 @@ def nucleotide_count(sequence, number):
 
     for nn in range(0, len(sequence)+number, number):
 
-        xx = sequence[nn - number:nn]
+        xx = sequence[nn - number:nn].upper()
 
         if xx in nucleotide_dict.keys():
 
@@ -194,7 +194,75 @@ def nucleotide_count(sequence, number):
 
     for item in nucleotide_dict:
         if nucleotide_dict[item] > 0:
-            print(item, ': ', nucleotide_dict[item])
+            return nucleotide_dict
 
-sequence = 'aggagtaagcccttgcaactggaaatacacccattg'
-nucleotide_count(sequence, 3)
+# sequence = 'aggagtaagcccttgcaactggaaatacacccattg'
+sequence = 'GAACCCGAAAATCCTTCCTTGCAGGAAACCAGTCTCAGTGTCCAACTCTCTAACCTTGGAACTGTGAGAACTCTGAGGACAAAGCAGCGGATACAACCTCAAAAGACGTCTGTCTACATTGAATTGGGATCTGATTCTTCTGAAGATACCGTTAATAAGGCAACTTATTGCAGTGTGGGAGATCAAGAATTGTTACAAATCACCCCTCAAGGAACCAGGGATGAAATCAGTTTGGATTCTGCAAAAAAGGCTGCTTGTGAATTTTCTGAGACGGATGTAA'
+print(nucleotide_count(sequence, 1))
+
+'''
+Answer: 
+
+A :  89
+C :  58
+G :  62
+T :  71
+
+AA :  18
+AC :  9
+AG :  8
+AT :  11
+CA :  6
+CC :  9
+CG :  1
+CT :  7
+GA :  15
+GC :  4
+GG :  9
+GT :  5
+TA :  4
+TC :  13
+TG :  11
+TT :  10
+
+AAA :  1
+AAC :  1
+AAG :  4
+AAT :  2
+ACA :  1
+ACC :  4
+ACG :  2
+ACT :  3
+AGA :  1
+AGG :  2
+AGT :  4
+ATA :  1
+ATC :  2
+ATT :  1
+CAA :  6
+CAG :  2
+CCC :  1
+CCT :  3
+CGG :  1
+'''
+
+# 2.6 Develop a function which gives the GC content of a sequence
+
+def GC_content(sequence):
+
+    nucleotide_count_dict = nucleotide_count(sequence, 1)
+
+    GC_cont = ((nucleotide_count_dict['G'] + nucleotide_count_dict['C']) / len(sequence)) * 100
+
+    GC_percent = '{:.2f}'.format(GC_cont)
+
+    print(f'The GC content is {GC_percent}%')
+
+# sequence = 'aggagtaagcccttgcaactggaaatacacccattg'
+sequence = 'GAACCCGAAAATCCTTCCTTGCAGGAAACCAGTCTCAGTGTCCAACTCTCTAACCTTGGAACTGTGAGAACTCTGAGGACAAAGCAGCGGATACAACCTCAAAAGACGTCTGTCTACATTGAATTGGGATCTGATTCTTCTGAAGATACCGTTAATAAGGCAACTTATTGCAGTGTGGGAGATCAAGAATTGTTACAAATCACCCCTCAAGGAACCAGGGATGAAATCAGTTTGGATTCTGCAAAAAAGGCTGCTTGTGAATTTTCTGAGACGGATGTAA'
+
+GC_content(sequence)
+
+'''
+Answer: The GC content is 42.86%
+'''
