@@ -15,7 +15,7 @@ def amino_acid_count():
         file = f'{filepath}/PythonProgramming/Python_exercises/{filename}'
 
         if filename == 'quit':
-            print('---------------------------------\nTerminating script...')
+            print('---------------------------------\n<<<<<<<<<<<<<<<<<<<<<<<TERMINATING SCRIPT>>>>>>>>>>>>>>>>>>>>>\n')
             return
 
         elif len(filename) == 0:
@@ -37,7 +37,7 @@ def amino_acid_count():
         amino_acid_number = 0
 
         if amino_acid == 'QUIT':
-            print('---------------------------------\nTerminating script...')
+            print('---------------------------------\n<<<<<<<<<<<<<<<<<<<<<<<TERMINATING SCRIPT>>>>>>>>>>>>>>>>>>>>>\n')
             return
 
         if amino_acid == 'SHOW ME THE MONEY':
