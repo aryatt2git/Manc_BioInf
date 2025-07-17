@@ -2,11 +2,13 @@
 
 import os
 
-def open_file():
+def amino_acid_count():
+
+    print('<<<<<<<<<<<<<<<<<<<<<<FUNCTION ACTIVATED>>>>>>>>>>>>>>>>>>>>>>')
 
     while True:
 
-        filename = input('Please enter filename or type "quit" to quit:')
+        filename = input('Please enter a filename or type "quit" to quit:')
 
         filepath = os.getcwd()
 
@@ -20,7 +22,7 @@ def open_file():
             print('---------------------------------\nNo input received.')
 
         elif os.path.exists(file):
-            print('Opening file...')
+            print('\n<<<<<<<<<<<<<<<<<<<<<<<<<OPENING FILE>>>>>>>>>>>>>>>>>>>>>>>>>')
             break
 
         else:
@@ -40,7 +42,7 @@ def open_file():
 
         if amino_acid == 'SHOW ME THE MONEY':
 
-            print('<<<<<<<<<<<<<<<<<<<<<<PASSWORD ACCEPTED>>>>>>>>>>>>>>>>>>>>>>')
+            print('\n<<<<<<<<<<<<<<<<<<<<<<<PASSWORD ACCEPTED>>>>>>>>>>>>>>>>>>>>>>')
 
             with open(file) as open_file:
 
@@ -85,9 +87,9 @@ def open_file():
 
                         amino_acid_number = amino_acid_number + 1
 
-                print(f'{amino_acid} appears in {filename} {amino_acid_number} times.\n---------------------------------')
+                print(f'\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n{amino_acid} appears in {filename} {amino_acid_number} times.\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
 
         else:
             print('---------------------------------\nInput does not correspond with an amino acid abbreviation.')
 
-open_file()
+amino_acid_count()
