@@ -1,74 +1,93 @@
 # 3.1
 
-# a)
+import os
 
 def open_file():
 
-    import os
-
     while True:
 
-        filename = input('Please enter filename:')
+        filename = input('Please enter filename or type "quit" to quit:')
 
         filepath = os.getcwd()
 
         file = f'{filepath}/PythonProgramming/Python_exercises/{filename}'
 
         if filename == 'quit':
-            print('Terminating script...')
+            print('---------------------------------\nTerminating script...')
             return
 
         elif len(filename) == 0:
-            print('No input received. Please enter a filename or type "quit" to quit:')
+            print('---------------------------------\nNo input received.')
 
         elif os.path.exists(file):
-
             print('Opening file...')
-
-            open_file = open(file)
             break
 
         else:
-            print('File cannot be found. Please check that the filename is correct or type "quit" to quit:')
+            print('---------------------------------\nFile cannot be found.')
+
+    amino_acids_list = ['ALA', 'ARG', 'ASN', 'ASP', 'CYS', 'GLN', 'GLU', 'GLY', 'HIS', 'ILE', 'LEU', 'LYS', 'MET', 'PHE', 'PRO', 'SER', 'THR', 'TRP', 'TYR', 'VAL']
 
     while True:
 
-        amino_acid = input('Please enter a 3-letter abbreviation of an amino acid:').upper()
-
-        amino_acids_list = ['ALA', 'ARG', 'ASN', 'ASP', 'CYS', 'GLN', 'GLU', 'GLY', 'HIS', 'ILE', 'LEU', 'LYS', 'MET', 'PHE', 'PRO', 'SER', 'THR', 'TRP', 'TYR', 'VAL']
+        amino_acid = input('Please enter a 3-letter abbreviation of an amino acid OR the ***SECRET PASSWORD***\n...or type "quit" to quit:').upper()
 
         amino_acid_number = 0
 
         if amino_acid == 'QUIT':
-            print('Terminating script...')
+            print('---------------------------------\nTerminating script...')
             return
 
+        if amino_acid == 'SHOW ME THE MONEY':
+
+            print('<<<<<<<<<<<<<<<<<<<<<<PASSWORD ACCEPTED>>>>>>>>>>>>>>>>>>>>>>')
+
+            with open(file) as open_file:
+
+                aa_count_dict = {}
+
+                for line in open_file:
+
+                    aa = line[15:18]
+
+                    if aa not in aa_count_dict.keys():
+
+                        aa_count_dict[aa] = 1
+
+                    elif aa in aa_count_dict.keys():
+
+                        aa_count_dict[aa] = aa_count_dict[aa] + 1
+
+                for item in aa_count_dict:
+
+                    if aa_count_dict[item] > 0:
+
+                        print(f'{item}: {aa_count_dict[item]}')
+
+                print('---------------------------------')
+
         elif len(amino_acid) == 0:
-            print('No input received. Please enter one of the following abbreviations or type "quit" to quit:', amino_acids_list)
+            print('---------------------------------\nNo input received.')
 
         elif len(amino_acid) != 3:
-            print('Abbreviation should be 3 letters long. Please try again or type "quit" to quit:')
+            print('---------------------------------\nAbbreviation should be 3 letters long.')
 
         elif amino_acid not in amino_acids_list:
-
-            print('Input does not correspond with an amino acid abbreviation. Please enter one of the following abbreviations or type "quit" to quit:', amino_acids_list)
+            print('---------------------------------\nInput does not correspond with an amino acid abbreviation.')
 
         elif amino_acid in amino_acids_list:
 
-            for line in open_file:
+            with open(file) as open_file:
 
-                if amino_acid in line:
+                for line in open_file:
 
-                    amino_acid_number = amino_acid_number + 1
+                    if amino_acid in line:
 
-            break
+                        amino_acid_number = amino_acid_number + 1
+
+                print(f'{amino_acid} appears in {filename} {amino_acid_number} times.\n---------------------------------')
 
         else:
-            print('Input does not correspond with an amino acid abbreviation. Please enter one of the following abbreviations or type "quit" to quit:', amino_acids_list)
-
-    while amino_acid in amino_acids_list:
-
-        print(f'{amino_acid} appears in {filename} {amino_acid_number} times.')
-        break
+            print('---------------------------------\nInput does not correspond with an amino acid abbreviation.')
 
 open_file()

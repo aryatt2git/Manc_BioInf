@@ -170,9 +170,9 @@ VKS*AQGPSYLRNPTCPPSRKSQ-end of sequence out of frame
 
 # 2.5 Count single, di-nucleotide and tri-nucleotides in a sequence
 
-def nucleotide_count(sequence, number):
+from itertools import product
 
-    from itertools import product
+def nucleotide_count(sequence, number):
 
     nucleotides = ['A', 'C', 'G', 'T']
 
@@ -194,11 +194,13 @@ def nucleotide_count(sequence, number):
 
     for item in nucleotide_dict:
         if nucleotide_dict[item] > 0:
-            return nucleotide_dict
+            print(f'{item}: {nucleotide_dict[item]}')
 
-# sequence = 'aggagtaagcccttgcaactggaaatacacccattg'
-sequence = 'GAACCCGAAAATCCTTCCTTGCAGGAAACCAGTCTCAGTGTCCAACTCTCTAACCTTGGAACTGTGAGAACTCTGAGGACAAAGCAGCGGATACAACCTCAAAAGACGTCTGTCTACATTGAATTGGGATCTGATTCTTCTGAAGATACCGTTAATAAGGCAACTTATTGCAGTGTGGGAGATCAAGAATTGTTACAAATCACCCCTCAAGGAACCAGGGATGAAATCAGTTTGGATTCTGCAAAAAAGGCTGCTTGTGAATTTTCTGAGACGGATGTAA'
-print(nucleotide_count(sequence, 1))
+    return nucleotide_dict
+
+sequence = 'aggagtaagcccttgcaactggaaatacacccattg'
+# sequence = 'GAACCCGAAAATCCTTCCTTGCAGGAAACCAGTCTCAGTGTCCAACTCTCTAACCTTGGAACTGTGAGAACTCTGAGGACAAAGCAGCGGATACAACCTCAAAAGACGTCTGTCTACATTGAATTGGGATCTGATTCTTCTGAAGATACCGTTAATAAGGCAACTTATTGCAGTGTGGGAGATCAAGAATTGTTACAAATCACCCCTCAAGGAACCAGGGATGAAATCAGTTTGGATTCTGCAAAAAAGGCTGCTTGTGAATTTTCTGAGACGGATGTAA'
+nucleotide_count(sequence, 3)
 
 '''
 Answer: 
@@ -256,7 +258,7 @@ def GC_content(sequence):
 
     GC_percent = '{:.2f}'.format(GC_cont)
 
-    print(f'The GC content is {GC_percent}%')
+    print(f'The GC content is {GC_percent}%    ')
 
 # sequence = 'aggagtaagcccttgcaactggaaatacacccattg'
 sequence = 'GAACCCGAAAATCCTTCCTTGCAGGAAACCAGTCTCAGTGTCCAACTCTCTAACCTTGGAACTGTGAGAACTCTGAGGACAAAGCAGCGGATACAACCTCAAAAGACGTCTGTCTACATTGAATTGGGATCTGATTCTTCTGAAGATACCGTTAATAAGGCAACTTATTGCAGTGTGGGAGATCAAGAATTGTTACAAATCACCCCTCAAGGAACCAGGGATGAAATCAGTTTGGATTCTGCAAAAAAGGCTGCTTGTGAATTTTCTGAGACGGATGTAA'
