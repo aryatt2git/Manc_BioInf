@@ -3,7 +3,7 @@
 import os
 import re
 
-filename = 'U15422.1.fasta'
+filename = 'Exercise_3/U15422.1.fasta'
 
 filepath = os.getcwd()
 
