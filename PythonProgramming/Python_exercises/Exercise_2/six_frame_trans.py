@@ -11,10 +11,10 @@ def six_frame_trans(sequence):
     occurs two more times after the first nucleotide position in the input sequence, generating 3 forward and 3
     reverse amino acid sequences.
 
-    :params: sequence: a string of any number of nucleotides [A, T, C, G] in any order.
+    :param: sequence: a string of any number of nucleotides [A, T, C, G] in any order.
                        E.g. 'aggagtaagcccttgcaactggaaatacacccattg'
 
-    :return: forwards: a list of 3 sequences of amino acids encoded by the open-reading frame of the input sequence,
+    :returns: forwards: a list of 3 sequences of amino acids encoded by the open-reading frame of the input sequence,
                        starting at the 1st, 2nd and 3rd nucleotide positions.
                        E.g. ['AETSWTGDRLWGFSDNWPALRRPSP', 'LRLPGRGTGCGVSQITGPLRSGGLH', '*DFLDGGQAVGFLR*LGPCAQEFT']
 
