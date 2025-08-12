@@ -2,8 +2,8 @@ def DNA2Prot(sequence):
     '''
     This function reads each trinucleotide codon in a DNA sequence and converts it in to a corresponding amino acid.
 
-    :sequence: a string of any number of nucleotides [A, T, C, G] in any order.
-               E.g. 'aggagtaagcccttgcaactggaaatacacccattg'
+    :params: sequence: a string of any number of nucleotides [A, T, C, G] in any order.
+                       E.g. 'aggagtaagcccttgcaactggaaatacacccattg'
 
     :return: a string of amino acids.
              E.g. 'MDLSALRVEEVQNVINAMQKILECPICLELIKEPVSTKCDHIFCKFCMLKLLNQKKGPSQCPLCKNDITK'

@@ -82,13 +82,13 @@ Answer: MDLSALRVEEVQNVINAMQKILECPICLELIKEPVSTKCDHIFCKFCMLKLLNQKKGPSQCPLCKNDITK
 
 # 2.3 Write a function that generates the reverse compliment of a sequence
 
-def reverse_comp(sequence):
+def reverse_seq(sequence):
 
     rev_comp_seq = ''
 
-    reverse_seq = sequence[::-1].lower().replace(' ', '')
+    reversed_seq = sequence[::-1].lower().replace(' ', '')
 
-    for nucleotide in reverse_seq:
+    for nucleotide in reversed_seq:
 
         if nucleotide == 'a':
             rev_comp_seq += 't'
@@ -111,7 +111,7 @@ def reverse_comp(sequence):
 #sequence = 'aggagtaagcccttgcaactggaaatacacccattg'
 #sequence ='GCTGAGACTTCCTGGACGGGGGACAGGCTGTGGGGTTTCTCAGATAACTGGGCCCCTGCGCTCAGGAGGCCTTCACCCTCTGCTCTGGGTAAAGTTCATTGGAACAGAAAGAAATGGATTTATCTGCTCTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAATCTTAGAGTGTCCCATCTGTCTGGAGTTGATCAAGGAACCTGTCTCCACAAAGTGTGACCACATATTTTGCAAATTTTGCATGCTGAAACTTCTCAACCAGAAGAAAGGGCCTTCACAGTGTCCTTTATGTAAGAATGATATAACCAAAAGGAGCCTACAAGAAAGTACGAGATTTGAT'
 
-#reverse_comp(sequence)
+#reverse_seq(sequence)
 
 '''
 Answer: atcaaatctcgtactttcttgtaggctccttttggttatatcattcttacataaaggacactg
@@ -137,7 +137,7 @@ def six_frame_trans(sequence):
 
         forwards.append(forw_prot_seq)
 
-        rev_prot_seq = reverse_comp(sequence)[i:len(sequence)]
+        rev_prot_seq = reverse_seq(sequence)[i:len(sequence)]
 
         reverses.append(DNA2Prot(rev_prot_seq))
 
@@ -148,6 +148,8 @@ def six_frame_trans(sequence):
     print('Reverse')
     for seq in reverses:
         print(seq)
+
+    return forwards, reverses
 
 # sequence_one = 'aggagtaagcccttgcaactggaaatacacccattg'
 # six_frame_trans(sequence_one)
