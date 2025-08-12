@@ -2,18 +2,26 @@
 
 def convert2fasta(sequence):
 
-    for rows in range(60, len(sequence) + 60, 60):
+    fasta = ''
 
-        row_sequence = sequence[rows-60:rows].lower()
+    for row in range(60, len(sequence) + 60, 60):
 
-        print(str(rows - 59).rjust(len( str( len(sequence) + 60 ))), end='\t')
+        start_coordinate = f'{str(row - 59).rjust(len( str( len(sequence) + 60 )))}\t'
+
+        fasta = fasta + start_coordinate
+
+        row_sequence = f'{sequence[row-60:row].lower()}'
 
         for fragments in range(10, len(row_sequence) + 10, 10):
 
-            split_sequence = row_sequence[fragments-10:fragments]
-            print(split_sequence, end=' ')
+            split_sequence = f'{row_sequence[fragments-10:fragments]}\t'
 
-        print('')
+            fasta = fasta + split_sequence
+
+        fasta = fasta + '\n'
+
+    print(fasta)
+    return fasta
 
 sequence = "GCTGAGACTTCCTGGACGGGGGACAGGCTGTGGGGTTTCTCAGATAACTGGGCCCCTGCGCTCAGGAGGCCTTCACCCTCTGCTCTGGGTAAAGTTCATTGGAACAGAAAGAAATGGATTTATCTGCTCTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAATCTTAGAGTGTCCCATCTGTCTGGAGTTGATCAAGGAACCTGTCTCCACAAAGTGTGACCACATATTTTGCAAATTTTGCATGCTGAAACTTCTCAACCAGAAGAAAGGGCCTTCACAGTGTCCTTTATGTAAGAATGATATAACCAAAAGGAGCCTACAAGAAAGTACGAGATTTAGTCAACTTGTTGAAGAGCTATTGAAAATCATTTGTGCTTTTCAGCTTGACACAGGTTTGGAGTATGCAAACAGCTATAATTTTGCAAAAAAGGAAAATAACTCTCCTGAACATCTAAAAGATGAAGTTTCTATCATCCAAAGTATGGGCTACAGAAACCGTGCCAAAAGACTTCTACAGAGTGAACCCGAAAATCCTTCCTTGCAGGAAACCAGTCTCAGTGTCCAACTCTCTAACCTTGGAACTGTGAGAACTCTGAGGACAAAGCAGCGGATACAACCTCAAAAGACGTCTGTCTACATTGAATTGGGATCTGATTCTTCTGAAGATACCGTTAATAAGGCAACTTATTGCAGTGTGGGAGATCAAG"
 
