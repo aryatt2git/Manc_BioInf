@@ -8,14 +8,15 @@ def amino_acid_count():
 
     while True:
 
-        filename = input('Please enter a filename or type "quit" to quit:')
+        filename = input('Please enter a filename or type "quit" to quit:\n').strip()
 
         filepath = os.getcwd()
 
-        file = f'{filepath}/PythonProgramming/Python_exercises/{filename}'
+        file = f'./{filename}'
 
-        if filename == 'quit':
-            print('---------------------------------\n<<<<<<<<<<<<<<<<<<<<<<<TERMINATING SCRIPT>>>>>>>>>>>>>>>>>>>>>\n')
+        if filename.lower() == 'quit':
+            print('---------------------------------\n'
+                  '<<<<<<<<<<<<<<<<<<<<<<<TERMINATING SCRIPT>>>>>>>>>>>>>>>>>>>>>\n')
             return
 
         elif len(filename) == 0:
@@ -28,16 +29,20 @@ def amino_acid_count():
         else:
             print('---------------------------------\nFile cannot be found.')
 
-    amino_acids_list = ['ALA', 'ARG', 'ASN', 'ASP', 'CYS', 'GLN', 'GLU', 'GLY', 'HIS', 'ILE', 'LEU', 'LYS', 'MET', 'PHE', 'PRO', 'SER', 'THR', 'TRP', 'TYR', 'VAL']
+    amino_acids_list = ['ALA', 'ARG', 'ASN', 'ASP', 'CYS', 'GLN', 'GLU', 'GLY', 'HIS',
+                        'ILE', 'LEU', 'LYS', 'MET', 'PHE', 'PRO', 'SER', 'THR', 'TRP',
+                        'TYR', 'VAL']
 
     while True:
 
-        amino_acid = input('Please enter a 3-letter abbreviation of an amino acid OR the ***SECRET PASSWORD***\n...or type "quit" to quit:').upper()
+        amino_acid = input('Please enter a 3-letter abbreviation of an amino acid '
+                           'OR the ***SECRET PASSWORD***\n...or type "quit" to quit:\n').upper().strip()
 
         amino_acid_number = 0
 
         if amino_acid == 'QUIT':
-            print('---------------------------------\n<<<<<<<<<<<<<<<<<<<<<<<TERMINATING SCRIPT>>>>>>>>>>>>>>>>>>>>>\n')
+            print('---------------------------------\n'
+                  '<<<<<<<<<<<<<<<<<<<<<<<TERMINATING SCRIPT>>>>>>>>>>>>>>>>>>>>>\n')
             return
 
         if amino_acid == 'SHOW ME THE MONEY':
@@ -87,9 +92,12 @@ def amino_acid_count():
 
                         amino_acid_number = amino_acid_number + 1
 
-                print(f'\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n{amino_acid} appears in {filename} {amino_acid_number} times.\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+                print('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'
+                      f'{amino_acid} appears in {filename} {amino_acid_number} times.\n'
+                      '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
 
         else:
             print('---------------------------------\nInput does not correspond with an amino acid abbreviation.')
 
-amino_acid_count()
+if __name__ == '__main__':
+    amino_acid_count()
