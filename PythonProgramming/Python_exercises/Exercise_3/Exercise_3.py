@@ -9,29 +9,42 @@ def amino_acid_count():
     acid input should be a 3-letter abbreviation of the amino acid.
     '''
 
-
+    # A banner to indicate that the script has been activated.
     print('<<<<<<<<<<<<<<<<<AMINO ACID COUNTER ACTIVATED>>>>>>>>>>>>>>>>>')
 
+    # The 'while' loop enables the script to return to this point so that the user can make multiple attempts to enter a valid filename.
     while True:
 
+        # The 'input' function is used to allow the user to enter a filename. It also includes a prompt to instruct the user.
         filename = input('Please enter a filename or type "quit" to quit:\n').strip()
 
         filepath = os.getcwd()
 
         file = f'./{filename}'
 
+        # The filename is converted to lowercase to see if it matches with the word 'quit'. If it does, the script terminates.
+        # Quitting the script takes priority over any other condition in the 'while' loop so it is placed first.
         if filename.lower() == 'quit':
+
             print('---------------------------------\n'
                   '<<<<<<<<<<<<<<<<<AMINO ACID COUNTER TERMINATED>>>>>>>>>>>>>>>>\n')
+
+            # 'return' breaks the 'while' loop and ends the function, there by terminating the script.
             return
 
+        # The second most important input to consider is when there is no input. If an input is not entered, the prompt prints 'No input received.' to the terminal screen, notifying the user to enter something instead of nothing.
         elif len(filename) == 0:
             print('---------------------------------\nNo input received.')
 
+        # The 'path.exists' function from the 'os' module determines if the filepath and filename entered by the user truly exists. If they are, then a prompt notifies the user that it was valid.
         elif os.path.exists(file):
             print('\n<<<<<<<<<<<<<<<<<<<<<<<<<OPENING FILE>>>>>>>>>>>>>>>>>>>>>>>>>')
+
+            # The 'break' keyword is used instead of 'return' because it exits the 'while' loop without deactivating the script.
             break
 
+        # I anything else is entered, then a simple prompt, 'File cannot be found.', is printed to screen, notifying the user that there is a problem with their input.
+        # I think further development should be made to help user identify the nature of why their input did not work as both the filename and filepath need to be correct.
         else:
             print('---------------------------------\nFile cannot be found.')
 
