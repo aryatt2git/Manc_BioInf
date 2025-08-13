@@ -3,8 +3,14 @@
 import os
 
 def amino_acid_count():
+    '''
+    This interactive script counts the number of times an amino acid appears in a file. The script provides an
+    interface that allows the user to specify the file to search in and the amino acid to search for. The amino
+    acid input should be a 3-letter abbreviation of the amino acid.
+    '''
 
-    print('<<<<<<<<<<<<<<<<<<<<<<FUNCTION ACTIVATED>>>>>>>>>>>>>>>>>>>>>>')
+
+    print('<<<<<<<<<<<<<<<<<AMINO ACID COUNTER ACTIVATED>>>>>>>>>>>>>>>>>')
 
     while True:
 
@@ -16,7 +22,7 @@ def amino_acid_count():
 
         if filename.lower() == 'quit':
             print('---------------------------------\n'
-                  '<<<<<<<<<<<<<<<<<<<<<<<TERMINATING SCRIPT>>>>>>>>>>>>>>>>>>>>>\n')
+                  '<<<<<<<<<<<<<<<<<AMINO ACID COUNTER TERMINATED>>>>>>>>>>>>>>>>\n')
             return
 
         elif len(filename) == 0:
@@ -42,7 +48,7 @@ def amino_acid_count():
 
         if amino_acid == 'QUIT':
             print('---------------------------------\n'
-                  '<<<<<<<<<<<<<<<<<<<<<<<TERMINATING SCRIPT>>>>>>>>>>>>>>>>>>>>>\n')
+                  '<<<<<<<<<<<<<<<<<AMINO ACID COUNTER TERMINATED>>>>>>>>>>>>>>>\n')
             return
 
         if amino_acid == 'SHOW ME THE MONEY':
