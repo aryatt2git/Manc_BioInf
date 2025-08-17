@@ -1,2 +1,17 @@
+Bottleneck @ file:///croot/bottleneck_1731058641041/work
+mkl-service==2.4.0
+mkl_fft @ file:///io/mkl313/mkl_fft_1730824109137/work
+mkl_random @ file:///io/mkl313/mkl_random_1730823916628/work
+numexpr @ file:///croot/numexpr_1752521720723/work
+numpy==2.3.1
+pandas==2.3.1
+python-dateutil @ file:///croot/python-dateutil_1716495738603/work
+pytz @ file:///croot/pytz_1752135852232/work
+regex @ file:///croot/regex_1736540786412/work
+setuptools==75.1.0
+six @ file:///croot/six_1744271502820/work
+tzdata @ file:///croot/python-tzdata_1746123641790/work
+wheel==0.44.0
+
 setuptools==80.9.0
 wheel==0.44.0
