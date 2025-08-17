@@ -92,3 +92,6 @@ conda activate {virtual_environment_name}
 
 # To find which python packages have been installed:
 pip freeze
+
+# To install packages via python in editable mode (-e). This causes the system to track which python packages have been installed from this point on:
+pip install -e {package_name}
