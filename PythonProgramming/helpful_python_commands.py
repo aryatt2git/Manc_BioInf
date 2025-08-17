@@ -83,3 +83,12 @@ print(list)
 pop_list = new_list.pop()
 print(pop_list)
 print(new_list)
+
+# To find out which virtual environments are on your computer:
+conda info --envs
+
+# To activate a virtual environment:
+conda activate {virtual_environment_name}
+
+# To find which python packages have been installed:
+pip freeze
