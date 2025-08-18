@@ -6,6 +6,10 @@ def amino_acid_counter():
     This interactive script counts the number of times an amino acid appears in a file. The script provides an
     interface that allows the user to specify the file to search in and the amino acid to search for. The amino
     acid input should be a 3-letter abbreviation of the amino acid.
+
+    N.B. This script should be activated from the terminal command line.
+
+    :command: python3 path/to/this/script/from/current/working/directory/amino_acid_counter.py
     '''
 
     # A banner to indicate that the script has been activated.
@@ -63,7 +67,7 @@ def amino_acid_counter():
         # I anything else is entered, then a simple prompt, 'File cannot be found.', is printed to screen, notifying the user that there is a problem with their input.
         # I think further development should be made to help user identify why their input did not work as both the filename and filepath need to be correct.
         else:
-            print('---------------------------------\nFile could be found.')
+            print('---------------------------------\nFile could not be found.')
 
     # A list of 3-letter abbreviations of all 20 amino acids that can be iterated through.
     amino_acids_list = ['ALA', 'ARG', 'ASN', 'ASP', 'CYS', 'GLN', 'GLU', 'GLY', 'HIS',
