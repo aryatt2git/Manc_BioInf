@@ -43,7 +43,7 @@ def reverse_seq(sequence):
             rev_comp_seq += 'N'
 
     # The reverse complementary sequence is printed to screen.
-    print(rev_comp_seq)
+    #print(rev_comp_seq)
 
     # The reverse complementary sequence is returned.
     return rev_comp_seq

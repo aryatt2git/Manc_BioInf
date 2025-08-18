@@ -1,5 +1,5 @@
-import DNA2Prot
-import reverse_seq
+from DNA2Prot import DNA2Prot
+from reverse_seq import reverse_seq
 
 def six_frame_trans(sequence):
     '''

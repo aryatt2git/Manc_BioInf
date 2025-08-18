@@ -68,7 +68,7 @@ def DNA2Prot(sequence):
             protein_sequence += '-end of sequence out of frame'
 
     # The final protein sequence is printed to screen.
-    print(protein_sequence)
+    #print(protein_sequence)
 
     #The protein sequence is returned.
     return protein_sequence
