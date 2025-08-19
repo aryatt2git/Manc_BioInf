@@ -1,4 +1,4 @@
-def convert2fasta(sequence):
+def convert2fasta(sequence, row_len, fragment_len):
     '''
     This function converts a sequence to FASTA format, where rows are 60 characters long and are split into fragments
     that are 10 characters in length. Therefore, each row consists of 6 fragments of sequence. Each line begins with
@@ -29,22 +29,22 @@ def convert2fasta(sequence):
     fasta = ''
 
     # A loop to separate the input sequence into blocks of 60 characters long, distinguishing each row that will be iterated through.
-    for row in range(60, len(sequence) + 60, 60):
+    for row in range(row_len, len(sequence) + row_len, row_len):
 
         # The start coordinate is generated, followed by a tab to separate it from the start of the first fragment. The coordinate is right-justified.
-        start_coordinate = f'{str(row - 59).rjust(len( str( len(sequence) + 60 )))}\t'
+        start_coordinate = f'{str(row - (row_len - 1)).rjust(len( str( len(sequence) + row_len )))}\t'
 
         # The start coordinate is the first thing added to the new line.
         fasta = fasta + start_coordinate
 
         # The nucleotide sequence of that row is assigned to the 'row_sequence' variable.
-        row_sequence = f'{sequence[row-60:row].lower()}'
+        row_sequence = f'{sequence[row - row_len:row].lower()}'
 
         # This loop determines which positions the row should be split at and iterates through each fragment.
-        for fragments in range(10, len(row_sequence) + 10, 10):
+        for fragments in range(fragment_len, len(row_sequence) + fragment_len, fragment_len):
 
             # A tab is added to the end of each fragment to make it distinguishable from the following fragment.
-            split_sequence = f'{row_sequence[fragments-10:fragments]}\t'
+            split_sequence = f'{row_sequence[fragments - fragment_len:fragments]}\t'
 
             # The fragment is appended to the end of the FASTA string.
             fasta = fasta + split_sequence

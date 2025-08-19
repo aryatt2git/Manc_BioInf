@@ -1,20 +1,20 @@
 # 2.1 Create a function to convert DNA string into fasta format
 
-def convert2fasta(sequence):
+def convert2fasta(sequence, row_len, fragment_len):
 
     fasta = ''
 
-    for row in range(60, len(sequence) + 60, 60):
+    for row in range(row_len, len(sequence) + row_len, row_len):
 
-        start_coordinate = f'{str(row - 59).rjust(len( str( len(sequence) + 60 )))}\t'
+        start_coordinate = f'{str(row - (row_len - 1)).rjust(len( str( len(sequence) + row_len )))}\t'
 
         fasta = fasta + start_coordinate
 
-        row_sequence = f'{sequence[row-60:row].lower()}'
+        row_sequence = f'{sequence[row - row_len:row].lower()}'
 
-        for fragments in range(10, len(row_sequence) + 10, 10):
+        for fragments in range(fragment_len, len(row_sequence) + fragment_len, fragment_len):
 
-            split_sequence = f'{row_sequence[fragments-10:fragments]}\t'
+            split_sequence = f'{row_sequence[fragments-fragment_len:fragments]}\t'
 
             fasta = fasta + split_sequence
 
@@ -25,7 +25,7 @@ def convert2fasta(sequence):
 
 sequence = "GCTGAGACTTCCTGGACGGGGGACAGGCTGTGGGGTTTCTCAGATAACTGGGCCCCTGCGCTCAGGAGGCCTTCACCCTCTGCTCTGGGTAAAGTTCATTGGAACAGAAAGAAATGGATTTATCTGCTCTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAATCTTAGAGTGTCCCATCTGTCTGGAGTTGATCAAGGAACCTGTCTCCACAAAGTGTGACCACATATTTTGCAAATTTTGCATGCTGAAACTTCTCAACCAGAAGAAAGGGCCTTCACAGTGTCCTTTATGTAAGAATGATATAACCAAAAGGAGCCTACAAGAAAGTACGAGATTTAGTCAACTTGTTGAAGAGCTATTGAAAATCATTTGTGCTTTTCAGCTTGACACAGGTTTGGAGTATGCAAACAGCTATAATTTTGCAAAAAAGGAAAATAACTCTCCTGAACATCTAAAAGATGAAGTTTCTATCATCCAAAGTATGGGCTACAGAAACCGTGCCAAAAGACTTCTACAGAGTGAACCCGAAAATCCTTCCTTGCAGGAAACCAGTCTCAGTGTCCAACTCTCTAACCTTGGAACTGTGAGAACTCTGAGGACAAAGCAGCGGATACAACCTCAAAAGACGTCTGTCTACATTGAATTGGGATCTGATTCTTCTGAAGATACCGTTAATAAGGCAACTTATTGCAGTGTGGGAGATCAAG"
 
-convert2fasta(sequence)
+convert2fasta(sequence, 30, 5)
 
 # 2.2 Convert DNA sequence into translated protein sequence
 

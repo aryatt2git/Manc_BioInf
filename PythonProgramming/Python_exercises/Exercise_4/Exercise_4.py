@@ -22,15 +22,31 @@ with open(file) as fasta_file:
 
     ORF_sequences = []
 
+    '''for seq in re.finditer(r'(?:ATG)((?:[ATGC])*?)(?:TAG|TAA|TGA)', fasta_sequence):
+
+        ORF = seq.group(0)
+
+        if len(ORF) > 3 and len(ORF) % 3 == 0:
+
+            ORF_sequences.append(ORF)
+
+    ORF_sequence = ''
+
+    for sequence in ORF_sequences:
+
+        if len(sequence) > len(ORF_sequence):
+
+            ORF_sequence = sequence
+
+    sft(ORF_sequence)'''
+
     for i in range(len(fasta_sequence)):
 
-        ORF_sequences_TAG = re.findall('^ATG[ACGT]+TAG', fasta_sequence[i:])
+        ORF_sequences_TAG = re.findall('^ATG(([ACGT]+)*?)TAG', fasta_sequence[i:])
 
         for seq in ORF_sequences_TAG:
 
-            print('TAG: ', len(seq))
-
-            if len(seq) % 3 == 0:
+            if len(seq) > 1 and len(seq) % 3 == 0:
 
                 ORF_sequences.append(seq)
 
@@ -38,9 +54,7 @@ with open(file) as fasta_file:
 
         for seq in ORF_sequences_TGA:
 
-            print('TGA: ', len(seq))
-
-            if len(seq) % 3 == 0:
+            if len(seq) > 1 and len(seq) % 3 == 0:
 
                 ORF_sequences.append(seq)
 
@@ -48,9 +62,7 @@ with open(file) as fasta_file:
 
         for seq in ORF_sequences_TAA:
 
-            print('TAA: ', len(seq))
-
-            if len(seq) % 3 == 0:
+            if len(seq) > 1 and len(seq) % 3 == 0:
 
                 ORF_sequences.append(seq)
 
