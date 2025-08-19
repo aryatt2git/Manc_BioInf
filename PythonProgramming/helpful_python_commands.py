@@ -95,3 +95,6 @@ pip freeze
 
 # To install packages via python in editable mode (-e). This causes the system to track which python packages have been installed from this point on:
 pip install -e {package_name}
+
+# To print the Python packages to screen (in shell) in a format that can be pasted into a .toml file:
+echo 'dependencies = ['; sed -e 's/^/ "/' -e 's/$/",/' {filename}; echo ']'
