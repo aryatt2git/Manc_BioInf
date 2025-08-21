@@ -1,0 +1,21 @@
+21-08-2025 11:47:38 - Amino_Acid_Counter_Logger - INFO - amino_acid_counter.py script has been initiated.
+21-08-2025 11:47:51 - Amino_Acid_Counter_Logger - INFO - Filename input: User terminated the script.
+21-08-2025 11:49:18 - Amino_Acid_Counter_Logger - INFO - amino_acid_counter.py script initiated.
+21-08-2025 11:49:25 - Amino_Acid_Counter_Logger - ERROR - Filename input: User did not enter a valid filename. User entered 123255453.
+21-08-2025 11:49:25 - Amino_Acid_Counter_Logger - ERROR - Filename input: User did not enter a valid file extension. User entered 123255453.
+21-08-2025 11:50:03 - Amino_Acid_Counter_Logger - ERROR - Filename input: User did not enter a valid filename. User entered 4567y.56gf.
+21-08-2025 11:53:58 - Amino_Acid_Counter_Logger - ERROR - Filename input: User did not enter anything.
+21-08-2025 02:06:01 - Amino_Acid_Counter_Logger - INFO - Filename input: User terminated the script.
+21-08-2025 02:06:04 - Amino_Acid_Counter_Logger - INFO - amino_acid_counter.py script initiated.
+21-08-2025 02:06:08 - Amino_Acid_Counter_Logger - INFO - Filename input: User entered a valid filename: 1abc.sec.
+21-08-2025 02:06:08 - Amino_Acid_Counter_Logger - DEBUG - User can now search for the amino acid.
+21-08-2025 02:06:12 - Amino_Acid_Counter_Logger - ERROR - Amino Acid input: User did not enter an abbreviation 3 letters long. User entered: DEFGHJ.
+21-08-2025 02:06:18 - Amino_Acid_Counter_Logger - INFO - Amino Acid input: User terminated the script.
+21-08-2025 02:06:21 - Amino_Acid_Counter_Logger - INFO - amino_acid_counter.py script initiated.
+21-08-2025 02:06:25 - Amino_Acid_Counter_Logger - ERROR - Filename input: User did not enter a valid file extension. User entered 1234567.
+21-08-2025 02:06:45 - Amino_Acid_Counter_Logger - INFO - Filename input: User entered a valid filename: 1abc.sec.
+21-08-2025 02:06:45 - Amino_Acid_Counter_Logger - DEBUG - User can now search for the amino acid.
+21-08-2025 02:06:52 - Amino_Acid_Counter_Logger - ERROR - Amino Acid input: User did not enter a valid amino acid abbreviation. User entered: 123.
+21-08-2025 02:10:35 - Amino_Acid_Counter_Logger - INFO - Amino Acid input: User successfully searched for VAL.
+21-08-2025 02:10:35 - Amino_Acid_Counter_Logger - DEBUG - Amino Acid output: VAL appears in 1abc.sec 15 times.
+21-08-2025 03:09:51 - Amino_Acid_Counter_Logger - INFO - Amino Acid input: User terminated the script.

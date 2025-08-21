@@ -12,17 +12,11 @@ def create_logger():
     logger = logging.getLogger('Amino_Acid_Counter_Logger')
     logger.setLevel(logging.DEBUG)
 
-    stream_handler = logging.StreamHandler()
-    stream_handler.setLevel(logging.FATAL)
-    stream_handler_formatter = logging.Formatter('%(levelname)s - %(message)s')
-    stream_handler.setFormatter(stream_handler_formatter)
-
     log_handler = RotatingFileHandler('AAC.log', maxBytes=1000000, backupCount=5)
     log_handler.setLevel(logging.DEBUG)
-    log_handler_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    log_handler_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt= '%d-%m-%Y %I:%M:%S')
     log_handler.setFormatter(log_handler_formatter)
 
-    logger.addHandler(stream_handler)
     logger.addHandler(log_handler)
 
     return logger
