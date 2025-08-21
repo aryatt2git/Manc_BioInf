@@ -69,18 +69,19 @@ def amino_acid_counter():
 
         # A condition to determine if the user did not distinguish the file extension when they entered the Filename.
         elif '.' not in filename:
+
             # A message to help the user is printed to the terminal.
             print("---------------------------------\nEither '.' was missing from the filename or the file extension was not included.")
 
             # An ERROR message is printed to the .log file, stating that the user did not enter a valid file extension at the Filename input stage.
-            logger.error(f'Filename input: User did not enter a valid file extension. User entered {filename}.')
+            logger.error(f'Filename input: User did not enter a valid file extension. User entered: {filename}')
 
         # The 'path.exists' function from the 'os' module determines if the filepath and filename entered by the user truly exists. If they are, then a prompt notifies the user that it was valid.
         elif os.path.exists(file):
             print('\n<<<<<<<<<<<<<<<<<<<<<<<<<OPENING FILE>>>>>>>>>>>>>>>>>>>>>>>>>')
 
             # An INFO message is printed to the .log file, stating that the user did not enter anything at the Filename input stage.
-            logger.info(f'Filename input: User entered a valid filename: {filename}.')
+            logger.info(f'Filename input: User entered a valid filename: {filename}')
 
             # The 'break' keyword is used instead of 'return' because it exits the 'while' loop without deactivating the script.
             break
@@ -91,7 +92,7 @@ def amino_acid_counter():
             print('---------------------------------\nFile could not be found.')
 
             # An ERROR message is printed to the .log file, stating that the user did not enter a valid filename at the Filename input stage.
-            logger.error(f'Filename input: User did not enter a valid filename. User entered {filename}.')
+            logger.error(f'Filename input: User did not enter a valid filename. User entered: {filename}')
 
     # A list of 3-letter abbreviations of all 20 amino acids that can be iterated through.
     amino_acids_list = ['ALA', 'ARG', 'ASN', 'ASP', 'CYS', 'GLN', 'GLU', 'GLY', 'HIS',
@@ -126,7 +127,7 @@ def amino_acid_counter():
         elif amino_acid == 'SHOW ME THE MONEY':
 
             # An INFO message printed to the .log file, stating that the User has entered the secret password, giving them a full amino acid count.
-            logger.info('Amino Acid input: User entered the secret password')
+            logger.info('Amino Acid input: User entered the secret password.')
 
             print('\n<<<<<<<<<<<<<<<<<<<<<<<PASSWORD ACCEPTED>>>>>>>>>>>>>>>>>>>>>>')
 
@@ -182,20 +183,20 @@ def amino_acid_counter():
             print('---------------------------------\nAbbreviation should be 3 letters long.')
 
             # An ERROR message is printed to the .log file, stating that the user did not enter an amino acid abbreviation 3 letters long.
-            logger.error(f'Amino Acid input: User did not enter an abbreviation 3 letters long. User entered: {amino_acid}.')
+            logger.error(f'Amino Acid input: User did not enter an abbreviation 3 letters long. User entered: {amino_acid}')
 
         # And if the amino acid is not recognised, i.e. it is not in the amino acid list, the prompt, 'Input does not correspond with an amino acid abbreviation.' is printed to screen.
         elif amino_acid not in amino_acids_list:
             print('---------------------------------\nInput does not correspond with an amino acid abbreviation.')
 
             # An ERROR message is printed to the .log file, stating that the user did not enter a valid amino acid abbreviation.
-            logger.error(f'Amino Acid input: User did not enter a valid amino acid abbreviation. User entered: {amino_acid}.')
+            logger.error(f'Amino Acid input: User did not enter a valid amino acid abbreviation. User entered: {amino_acid}')
 
         # But if the amino acid entered by the user is in the amino acid list, the file specified by the user is opened and each line is iterated through in search for that amino acid.
         elif amino_acid in amino_acids_list:
 
             # An INFO message is printed to the .log file, stating which amino acid abbreviation the user searched for.
-            logger.info(f'Amino Acid input: User successfully searched for {amino_acid}.')
+            logger.info(f'Amino Acid input: User successfully searched for {amino_acid}')
 
             with open(file) as open_file:
 
