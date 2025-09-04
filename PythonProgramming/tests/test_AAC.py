@@ -1,0 +1,2 @@
+import pytest
+import Python_exercises.Exercise_3.amino_acid_counter

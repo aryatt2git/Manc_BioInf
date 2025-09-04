@@ -220,7 +220,7 @@ def amino_acid_counter():
             print('---------------------------------\nInput does not correspond with an amino acid abbreviation.')
 
             for char in amino_acid:
-                print(type(char))
+                print(char)
 
 
 # This condition  allows the script to be initiated from the command line.
