@@ -28,7 +28,7 @@ def convert2fasta(sequence, row_len, fragment_len):
     # An empty string in which the sequence can be stored in fasta format.
     fasta = ''
 
-    # A loop to separate the input sequence into blocks of 60 characters long, distinguishing each row that will be iterated through.
+    # A loop to separate the input sequence into chunks with a length that was determined by the user, distinguishing each row that will be iterated through.
     for row in range(row_len, len(sequence) + row_len, row_len):
 
         # The start coordinate is generated, followed by a tab to separate it from the start of the first fragment. The coordinate is right-justified.
