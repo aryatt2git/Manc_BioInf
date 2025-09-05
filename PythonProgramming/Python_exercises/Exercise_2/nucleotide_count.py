@@ -16,7 +16,7 @@ def nucleotide_count(sequence, number):
              E.g. {A: 12, C: 9, G: 8. T: 7}
 
     :command: sequence = 'aggagtaagcccttgcaactggaaatacacccattg'
-              six_frame_trans(sequence, 3)
+              nucleotide_count(sequence, 3)
     '''
 
     # A list of the different types of nucleotides.

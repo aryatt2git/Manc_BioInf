@@ -1,6 +1,6 @@
 from itertools import product
 
-def nucleotide_count(sequence, number):
+def nucleotide_count(sequence: str, number: int):
     '''
     This function counts the number of single nucleotides, dinucleotides and trinucleotides in a sequence. The user
     determines the number of nucleotides in each combination and the product function from the itertools module
@@ -16,7 +16,7 @@ def nucleotide_count(sequence, number):
              E.g. {A: 12, C: 9, G: 8. T: 7}
 
     :command: sequence = 'aggagtaagcccttgcaactggaaatacacccattg'
-              six_frame_trans(sequence, 3)
+              nucleotide_count(sequence, 3)
     '''
 
     # A list of the different types of nucleotides.

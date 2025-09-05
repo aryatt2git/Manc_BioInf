@@ -7,6 +7,5 @@ dependencies:
   - pip
   - setuptools==75.1.0
   - wheel==0.44.0
-  - intertools==10.6.0
-  - os
-  - re
+  - more-itertools
+  - regex
