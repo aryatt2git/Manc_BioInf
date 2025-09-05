@@ -1,4 +1,4 @@
-def chunk_sequence(sequence, chunk_length):
+def chunk_sequence(sequence: str, chunk_length: int):
     '''
     This function slices a sequence into chunks of the same length. The user can define the length of the chunk.
 
@@ -18,7 +18,7 @@ def chunk_sequence(sequence, chunk_length):
     # This iterates through all of the multiples of the chunk length, as defined by the user, up to the total length of the input sequence.
     for chunk in range(0, len(sequence) + chunk_length, chunk_length):
 
-        # The for loop slices the sequence at every position where the chunk length is a multiple, thereby splitting the sequence into chunks of the same length. Each chunk is appended to the 'chunked_sequence' string.
+        # The for loop slices the sequence at every position where the chunk length is a factor, thereby splitting the sequence into chunks of the same length. Each chunk is appended to the 'chunked_sequence' string.
         chunked_sequence += f'{sequence[chunk - chunk_length:chunk]} '.upper()
 
     # The chunked_sequence is printed to screen.
