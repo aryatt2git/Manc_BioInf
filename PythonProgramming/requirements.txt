@@ -1,6 +1,9 @@
 # The initial Python packages recommended by Uni. of Manchester.
 setuptools==80.9.0
 wheel==0.44.0
+pytest
+logging
+codecov
 
 # The Python packages loaded on my laptop that allow the functions to run.
 Bottleneck #@ file:///croot/bottleneck_1731058641041/work
@@ -298,3 +301,4 @@ wcwidth==0.2.5
 webencodings==0.5.1
 widgetsnbextension==4.0.9
 zope.interface==6.1
+

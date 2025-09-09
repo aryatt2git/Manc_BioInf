@@ -9,3 +9,6 @@ dependencies:
   - wheel==0.44.0
   - more-itertools
   - regex
+  - pytest
+  - logging
+  - codecov
