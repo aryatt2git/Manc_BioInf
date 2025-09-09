@@ -3,7 +3,7 @@ from modules.chunk_sequence import chunk_sequence
 
 def test_chunk_sequence():
 
-    sequence = 'aggagtaagcccttgcaactggaaatacacccattg' #making a change
+    sequence = 'aggagtaagcccttgcaactggaaatacacccattg' #making another change
     chunk_length = 3
 
     chunk_sequence(sequence, chunk_length)
