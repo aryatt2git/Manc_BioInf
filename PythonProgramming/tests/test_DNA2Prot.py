@@ -11,4 +11,3 @@ def test_DNA2Prot():
 
     for n in sequence:
         assert n in ['a', 'c', 'g', 't', 'A', 'C', 'G', 'T']
-    
