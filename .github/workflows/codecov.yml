@@ -37,7 +37,7 @@ jobs:
         run: |  
           pytest --cov --cov-branch --cov-report=xml
           pytest --cov --junitxml=junit.xml -o junit_family=legacy
-          pytest -q --cov=Manc_BioInf
+          pytest -q --cov=PythonProgramming
           pytest -q --cov=modules
           pytest -q --cov=tests
 
