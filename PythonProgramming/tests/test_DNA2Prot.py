@@ -3,7 +3,7 @@ from modules.DNA2Prot import DNA2Prot
 
 def test_DNA2Prot():
 
-    sequence = 'aggagtaagcccttfgcaactggaaatacacccattg'
+    sequence = 'aggagtaagcccttgcaactggaaatacacccattg'
 
     DNA2Prot(sequence)
 
