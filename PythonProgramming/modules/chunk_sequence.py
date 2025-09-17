@@ -26,5 +26,3 @@ def chunk_sequence(sequence: str, chunk_length: int):
 
     # The chunked_sequence is returned from the function.
     return chunked_sequence.strip()
-
-chunk_sequence(['A', 'T'], 1)

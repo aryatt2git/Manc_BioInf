@@ -29,7 +29,7 @@ def test_chunk_length():
     with pytest.raises(ValueError):
         chunk_sequence('ATCG', 0)
     with pytest.raises(ValueError):
-        chunk_sequence('ATCG', 0-1)
+        chunk_sequence('ATCG', -1)
 
 def test_other_data_types():
     with pytest.raises(TypeError):
