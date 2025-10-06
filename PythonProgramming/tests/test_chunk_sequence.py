@@ -5,7 +5,7 @@ from modules.chunk_sequence import chunk_sequence
 @pytest.mark.parametrize('sequence, chunk_length, expected', [
         ('ATCGGCTA', 3, 'ATC GGC TA'),      # checks normal function
         ('atcggcta', 3, 'ATC GGC TA'),      # maybe function converts to uppercase
-        ('ATBXZ', 2, 'AT BX Z'),            # depends on how invalid chars handled
+        ('ATBXZ', 2, AssertionError),            # depends on how invalid chars handled
         ('', 3, ''),                        # empty input returns empty list
         ('ATCG', 10, 'ATCG'),               # chunk size > seq length
         ('ATCG', 4, 'ATCG'),                # chunk size == seq length
@@ -21,7 +21,7 @@ def test_chunk_sequence(sequence, chunk_length, expected):
     assert type(sequence) == str
 
     for n in sequence:
-        assert n in ['a', 'c', 'g', 't', 'A', 'C', 'G', 'T']
+        assert n in ['a', 'c', 'g', 't', 'A', 'C', 'G', 'T'], f'{n} is not a nucleotide.'
 
     assert (type(chunk_length) == int)
 
