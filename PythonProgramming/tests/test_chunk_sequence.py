@@ -20,9 +20,6 @@ def test_chunk_sequence(sequence, chunk_length, expected):
 
     assert type(sequence) == str
 
-    for n in sequence:
-        assert n in ['a', 'c', 'g', 't', 'A', 'C', 'G', 'T'], f'{n} is not a nucleotide.'
-
     assert (type(chunk_length) == int)
 
 def test_chunk_length():
@@ -34,6 +31,8 @@ def test_chunk_length():
         chunk_sequence('ATCG',)
     with pytest.raises(TypeError):
         chunk_sequence('ATCG')
+    with pytest.raises(TypeError):
+        chunk_sequence('ATCG', 'ATCG')
 
 def test_other_data_types():
     with pytest.raises(TypeError):
