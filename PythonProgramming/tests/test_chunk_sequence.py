@@ -26,9 +26,9 @@ def test_chunk_sequence(sequence, chunk_length, expected):
     assert (type(chunk_length) == int)
 
 def test_chunk_length():
-    with pytest.raises(AttributeError):
+    with pytest.raises(AssertionError):
         chunk_sequence('ATCG', 0)
-    with pytest.raises(AttributeError):
+    with pytest.raises(AssertionError):
         chunk_sequence('ATCG', -1)
     with pytest.raises(TypeError):
         chunk_sequence('ATCG',)
