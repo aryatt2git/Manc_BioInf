@@ -17,6 +17,9 @@ def chunk_sequence(sequence: str, chunk_length: int):
 
     assert chunk_length > 0, 'chunk length is less than 1.'
 
+    for n in sequence:
+        assert n in ['a', 'c', 'g', 't', 'A', 'C', 'G', 'T'], f'{n} is not a nucleotide.'
+
     # This iterates through all of the multiples of the chunk length, as defined by the user, up to the total length of the input sequence.
     for chunk in range(0, len(sequence) + chunk_length, chunk_length):
 
