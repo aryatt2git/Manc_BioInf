@@ -87,5 +87,3 @@ def DNA2Prot(sequence: str):
 
     #The protein sequence is returned.
     return protein_sequence
-
-DNA2Prot(['A', 'T'])
