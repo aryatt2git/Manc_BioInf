@@ -1,4 +1,4 @@
-def DNA2Prot(sequence):
+def DNA2Prot(sequence: str):
     '''
     This function reads each trinucleotide codon in a DNA sequence and converts it in to a corresponding amino acid.
 
@@ -53,6 +53,7 @@ def DNA2Prot(sequence):
 
                 # If the condition is fulfilled, the comment '-codon not recognised-' is appended to the protein sequence string.
                 protein_sequence += '-codon not recognised-'
+                break
 
         # This loop iterates through the amino acid dictionary and assigns each amino acid and list of codons to a tuple of 'key' and 'value' variables.
         for key, value in trans_seq.items():
@@ -67,8 +68,24 @@ def DNA2Prot(sequence):
             # If the condition is fulfilled, the comment '-end of sequence out of frame' is appended to the protein sequence string.
             protein_sequence += '-end of sequence out of frame'
 
+    # for loop checks if there are any amino acids in the protein sequence.
+    codon_count = 0
+    for key, value in trans_seq.items():
+        if key in protein_sequence:
+            codon_count += 1
+
+    # if there are not any amino acids in the protein sequence, the protein sequence will be changed to 'Sequence could not be translated'.
+    if codon_count == 0:
+        protein_sequence = 'Sequence could not be translated'
+
+    # if the DNA input sequence is empty, the protein sequence will be changed to 'Input sequence was empty'.
+    if len(sequence) < 1:
+        protein_sequence = 'Input sequence was empty'
+
     # The final protein sequence is printed to screen.
     print(protein_sequence)
 
     #The protein sequence is returned.
     return protein_sequence
+
+DNA2Prot(['A', 'T'])
