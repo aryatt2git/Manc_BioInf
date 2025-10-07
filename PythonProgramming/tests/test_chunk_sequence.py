@@ -5,7 +5,6 @@ from modules.chunk_sequence import chunk_sequence
 @pytest.mark.parametrize('sequence, chunk_length, expected', [
         ('ATCGGCTA', 3, 'ATC GGC TA'),                                                   # checks normal function
         ('atcggcta', 3, 'ATC GGC TA'),                                                   # maybe function converts to uppercase
-        ('ATBXZ', 2, 'B at position 3 in the sequence is not a nucleotide.'),            # depends on how invalid chars handled
         ('', 3, ''),                                                                     # empty input returns empty list
         ('ATCG', 10, 'ATCG'),                                                            # chunk size > seq length
         ('ATCG', 4, 'ATCG'),                                                             # chunk size == seq length
@@ -14,15 +13,14 @@ from modules.chunk_sequence import chunk_sequence
 
 def test_chunk_sequence(sequence, chunk_length, expected):
 
-    with pytest.raises(AssertionError) as exc_info:
-
-        chunk_sequence(sequence, chunk_length)
-
-    assert str(exc_info.value) == expected
-
     output = chunk_sequence(sequence, chunk_length)
 
     assert output == expected
+
+def test_invalid_chunk_sequence():
+    with pytest.raises(AssertionError) as exc_info:
+        chunk_sequence('ATBXZ', 2)
+    assert exc_info.value.args[0] == 'B at position 3 in the sequence is not a nucleotide.'
 
 def test_chunk_length():
     with pytest.raises(AssertionError):
