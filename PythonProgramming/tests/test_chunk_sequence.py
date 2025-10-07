@@ -35,10 +35,14 @@ def test_chunk_length():
         chunk_sequence('ATCG', 'ATCG')
 
 def test_other_data_types():
-    with pytest.raises(TypeError):
+    with pytest.raises(AssertionError) as exc_info:
         chunk_sequence(12345, 3)
-    with pytest.raises(TypeError):
+    assert exc_info.value.args[0] == 'sequence is not a string.'
+
+    with pytest.raises(AssertionError) as exc_info:
         chunk_sequence(None, 3)
+    assert exc_info.value.args[0] == 'sequence is not a string.'
+
     with pytest.raises(AssertionError) as exc_info:
         chunk_sequence(['A', 'T'], 3)
     assert exc_info.value.args[0] == 'sequence is not a string.'
