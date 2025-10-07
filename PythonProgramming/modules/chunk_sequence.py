@@ -15,12 +15,16 @@ def chunk_sequence(sequence: str, chunk_length: int):
     # An empty string in which to store the chunks that the sequence has been separated in to.
     chunked_sequence = ''
 
+    # Assertion ensures chunk_length is a positive integer and not 0.
     assert chunk_length > 0, 'chunk length is less than 1.'
 
+    # Assertion ensures sequence is a string.
     assert type(sequence) == str, 'sequence is not a string.'
 
+    # for loop ensures the characters in the sequence are nucleotides.
     for i in range(0, len(sequence)):
 
+        # AssertionError is raised with a message to notify the user what and where the error is.
         assert sequence[i] in ['a', 'c', 'g', 't', 'A', 'C', 'G', 'T'], f'{sequence[i]} at position {i+1} in the sequence is not a nucleotide.'
 
     # This iterates through all of the multiples of the chunk length, as defined by the user, up to the total length of the input sequence.
