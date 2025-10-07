@@ -39,5 +39,6 @@ def test_other_data_types():
         chunk_sequence(12345, 3)
     with pytest.raises(TypeError):
         chunk_sequence(None, 3)
-    with pytest.raises(TypeError):
+    with pytest.raises(AssertionError) as exc_info:
         chunk_sequence(['A', 'T'], 3)
+    assert exc_info.value.args[0] == 'sequence is not a string.'

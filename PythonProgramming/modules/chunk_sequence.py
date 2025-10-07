@@ -17,6 +17,8 @@ def chunk_sequence(sequence: str, chunk_length: int):
 
     assert chunk_length > 0, 'chunk length is less than 1.'
 
+    assert type(sequence) == str, 'sequence is not a string.'
+
     for i in range(0, len(sequence)):
 
         assert sequence[i] in ['a', 'c', 'g', 't', 'A', 'C', 'G', 'T'], f'{sequence[i]} at position {i+1} in the sequence is not a nucleotide.'
