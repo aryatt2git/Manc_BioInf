@@ -71,5 +71,3 @@ def convert2fasta(sequence, row_len, fragment_len):
 
     # The FASTA sequence is returned.
     return fasta
-
-convert2fasta('TATCGGCT', 4, 4)
