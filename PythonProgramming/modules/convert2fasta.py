@@ -28,6 +28,20 @@ def convert2fasta(sequence, row_len, fragment_len):
     # An empty string in which the sequence can be stored in fasta format.
     fasta = ''
 
+    # Assertion ensures row_len is a positive integer and not 0.
+    assert row_len > 0, 'row_len is less than 1 but should be 1 or higher.'
+
+    # Assertion ensures fragment_len is a positive integer and not 0.
+    assert fragment_len > 0 and fragment_len < row_len+1, f'fragment_len is less than 1 but should be 1 or higher, and the same or less than the row_len. row_len: {row_len}.'
+
+    # Assertion ensures sequence is a string.
+    assert type(sequence) == str, 'sequence is not a string.'
+
+    # for loop ensures the characters in the sequence are nucleotides.
+    for i in range(0, len(sequence)):
+        # AssertionError is raised with a message to notify the user what and where the error is.
+        assert sequence[i] in ['a', 'c', 'g', 't', 'A', 'C', 'G', 'T'], f'{sequence[i]} at position {i + 1} in the sequence is not a nucleotide.'
+
     # A loop to separate the input sequence into chunks with a length that was determined by the user, distinguishing each row that will be iterated through.
     for row in range(row_len, len(sequence) + row_len, row_len):
 
@@ -38,7 +52,7 @@ def convert2fasta(sequence, row_len, fragment_len):
         fasta = fasta + start_coordinate
 
         # The nucleotide sequence of that row is assigned to the 'row_sequence' variable.
-        row_sequence = f'{sequence[row - row_len:row].lower()}'
+        row_sequence = f'{sequence[row - row_len:row].lower().strip()}'
 
         # This loop determines which positions the row should be split at and iterates through each fragment.
         for fragments in range(fragment_len, len(row_sequence) + fragment_len, fragment_len):
@@ -57,3 +71,5 @@ def convert2fasta(sequence, row_len, fragment_len):
 
     # The FASTA sequence is returned.
     return fasta
+
+convert2fasta('TATCGGCT', 4, 4)
