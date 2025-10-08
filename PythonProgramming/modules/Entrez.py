@@ -1,7 +1,6 @@
 from Bio import Entrez
 from Bio import SeqIO
 import json
-import xmltodict
 
 Entrez.email = "A.N.Other@example.com"
 
@@ -35,16 +34,3 @@ with Entrez.efetch(db='nucleotide', rettype='gb', retmode='text', id='NM_002112.
         }
 
     print(json.dumps(record_dict, indent=4))
-
-'''
-response = Entrez.efetch(db='nucleotide', rettype='gb', retmode='XML', id='NM_002112.4')
-record = xmltodict.parse(response.read())['GBSet']['GBSeq']
-
-record_dict = {}
-
-for key, value in record.items():
-
-    key = key.replace('GBSeq_', '')
-
-    record_dict[key] = value
-'''
