@@ -2,35 +2,41 @@ from Bio import Entrez
 from Bio import SeqIO
 import json
 
-Entrez.email = "A.N.Other@example.com"
+class objectify:
+    def __init__(self, record):
+        for key, value in record.items():
+            setattr(self, key, value)
 
-with Entrez.efetch(db='nucleotide', rettype='gb', retmode='text', id='NM_002112.4') as handle:
+def Entrez_fetch_transcript_record(email: str, accession_ID: str):
 
-    for seq_record in SeqIO.parse(handle, 'gb'):
+    Entrez.email = email
 
-        for feature in seq_record.features:
+    with Entrez.efetch(db='nucleotide', rettype='gb', retmode='text', id=accession_ID) as handle:
 
-            if feature.type == 'CDS':
+        for seq_record in SeqIO.parse(handle, 'gb'):
 
-                CDS_dict = {
-                    'gene': feature.qualifiers['gene'],
-                    'EC_number': feature.qualifiers['EC_number'],
-                    'note': feature.qualifiers['note'],
-                    'codon_start': feature.qualifiers['codon_start'],
-                    'product': feature.qualifiers['product'],
-                    'protein_id': feature.qualifiers['protein_id'],
-                    'db_xref': feature.qualifiers['db_xref'],
-                    'translation': feature.qualifiers['translation']
-                }
+            for feature in seq_record.features:
 
-        record_dict = {
-            'ID': seq_record.id,
-            'Gene_symbol': CDS_dict['gene'][0],
-            'HGNC_ID': CDS_dict['db_xref'][2].split(':')[2],
-            'DNA_sequence': str(seq_record.seq),
-            'RNA_sequence': str(seq_record.seq.replace("T", "U")),
-            'Protein_sequence': CDS_dict['translation'][0],
-            'Protein_ID': CDS_dict['protein_id'][0]
-        }
+                if feature.type == 'CDS':
+
+                    CDS_dict = {
+                        'gene': feature.qualifiers['gene'],
+                        'protein_id': feature.qualifiers['protein_id'],
+                        'db_xref': feature.qualifiers['db_xref'],
+                        'translation': feature.qualifiers['translation']
+                    }
+
+            record_dict = {
+                'ID': seq_record.id,
+                'Gene_symbol': CDS_dict['gene'][0],
+                'HGNC_ID': CDS_dict['db_xref'][2].split(':')[2],
+                'DNA_sequence': str(seq_record.seq),
+                'RNA_sequence': str(seq_record.seq.replace("T", "U")),
+                'Protein_sequence': CDS_dict['translation'][0],
+                'Protein_ID': CDS_dict['protein_id'][0]
+            }
 
     print(json.dumps(record_dict, indent=4))
+
+    return record_dict
+#record = objectify(Entrez_fetch_transcript_record('A.N.Other@example.com', 'NM_000527.5'))
