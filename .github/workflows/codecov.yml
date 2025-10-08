@@ -32,7 +32,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install pytest pytest-cov
-
+      
       - name: Run tests
         run: |  
           pytest --cov --cov-branch --cov-report=xml
@@ -45,6 +45,8 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          codecov:
+            max_report_age: off
           
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
