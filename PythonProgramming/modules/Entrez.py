@@ -34,7 +34,7 @@ with Entrez.efetch(db='nucleotide', rettype='gb', retmode='text', id='NM_002112.
             'Protein_ID': CDS_dict['protein_id'][0]
         }
 
-    print(json.dumps(record_dict, indent=4))
+    print(json.dumps(record_dict, indent=4))dsg
 
 '''
 response = Entrez.efetch(db='nucleotide', rettype='gb', retmode='XML', id='NM_002112.4')
