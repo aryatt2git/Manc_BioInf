@@ -25,14 +25,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      # This sets up Python.
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
+      # This ensures that the pytest and pytest-cov dependencies have been installed.
       - name: Install dependencies
         run: pip install pytest pytest-cov
-      
+
+      # 'Run tests' is where the actual pytest commands are, in the workflow.
+      # Note that last two commands have been commented-out. This is because the command before them includes them in its pytest. 
       - name: Run tests
         run: |  
           pytest --cov --cov-branch --cov-report=xml
@@ -41,11 +45,13 @@ jobs:
           #pytest -q --cov=modules
           #pytest -q --cov=tests
 
+      # This uploads the pytest coverage results to Codecov.
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          
+
+      # This uploads the pytests to Codecov, including which lines in the code were missed. 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@v1
